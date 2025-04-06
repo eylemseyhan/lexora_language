@@ -19,6 +19,7 @@ type UnitProps = {
   activeLessonPercentage: number;
 };
 
+// Her ders birimini (üniteyi) ve içindeki dersleri gösterir
 export const Unit = ({
   title,
   description,
@@ -28,6 +29,7 @@ export const Unit = ({
 }: UnitProps) => {
   return (
     <>
+      {/* Ünite başlığı ve açıklaması */}
       <UnitBanner title={title} description={description} />
 
       <div className="relative flex flex-col items-center">

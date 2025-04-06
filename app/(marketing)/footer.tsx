@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
 
+// Sayfanın alt kısmında dil seçeneklerini gösteren alan
 export const Footer = () => {
   return (
     <div className="hidden h-20 w-full border-t-2 border-slate-200 p-2 lg:block">
@@ -9,56 +10,56 @@ export const Footer = () => {
         <Button size="lg" variant="ghost" className="w-full cursor-default">
           <Image
             src="/hr.svg"
-            alt="Croatian"
+            alt="Hırvatça"
             height={32}
             width={40}
             className="mr-4 rounded-md"
           />
-          Croatian
+          Hırvatça
         </Button>
 
         <Button size="lg" variant="ghost" className="w-full cursor-default">
           <Image
             src="/es.svg"
-            alt="Spanish"
+            alt="İspanyolca"
             height={32}
             width={40}
             className="mr-4 rounded-md"
           />
-          Spanish
+          İspanyolca
         </Button>
 
         <Button size="lg" variant="ghost" className="w-full cursor-default">
           <Image
             src="/fr.svg"
-            alt="French"
+            alt="Fransızca"
             height={32}
             width={40}
             className="mr-4 rounded-md"
           />
-          French
+          Fransızca
         </Button>
 
         <Button size="lg" variant="ghost" className="w-full cursor-default">
           <Image
             src="/it.svg"
-            alt="Italian"
+            alt="İtalyanca"
             height={32}
             width={40}
             className="mr-4 rounded-md"
           />
-          Italian
+          İtalyanca
         </Button>
 
         <Button size="lg" variant="ghost" className="w-full cursor-default">
           <Image
             src="/jp.svg"
-            alt="Japanese"
+            alt="Japonca"
             height={32}
             width={40}
             className="mr-4 rounded-md"
           />
-          Japanese
+          Japonca
         </Button>
       </div>
     </div>

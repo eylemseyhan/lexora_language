@@ -9,6 +9,7 @@ import { getUserProgress, getUserSubscription } from "@/db/queries";
 
 import { Items } from "./items";
 
+// Mağaza sayfası – kalp doldurma ve yükseltme işlemleri
 const ShopPage = async () => {
   const userProgressData = getUserProgress();
   const userSubscriptionData = getUserSubscription();
@@ -31,19 +32,18 @@ const ShopPage = async () => {
           points={userProgress.points}
           hasActiveSubscription={isPro}
         />
-
         <Quests points={userProgress.points} />
       </StickyWrapper>
 
       <FeedWrapper>
         <div className="flex w-full flex-col items-center">
-          <Image src="/shop.svg" alt="Shop" height={90} width={90} />
+          <Image src="/shop.svg" alt="Mağaza" height={90} width={90} />
 
           <h1 className="my-6 text-center text-2xl font-bold text-neutral-800">
-            Shop
+            Mağaza
           </h1>
           <p className="mb-6 text-center text-lg text-muted-foreground">
-            Spend your points on cool stuff.
+            Puanlarını güzel şeyler için harca.
           </p>
 
           <Items

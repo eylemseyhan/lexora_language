@@ -9,6 +9,7 @@ type ResultCardProps = {
 };
 
 export const ResultCard = ({ value, variant }: ResultCardProps) => {
+  // Eğer 'points' ise puan simgesini, 'hearts' ise kalp simgesini seçiyoruz
   const imageSrc = variant === "points" ? "/points.svg" : "/heart.svg";
 
   return (
@@ -26,7 +27,8 @@ export const ResultCard = ({ value, variant }: ResultCardProps) => {
           variant === "hearts" && "bg-rose-500"
         )}
       >
-        {variant === "hearts" ? "Hears Left" : "Total XP"}
+        {/* Eğer 'hearts' seçildiyse "Kalan Kalp", 'points' seçildiyse "Toplam XP" yazdırıyoruz */}
+        {variant === "hearts" ? "Kalan Kalp" : "Toplam XP"}
       </div>
 
       <div
@@ -43,6 +45,7 @@ export const ResultCard = ({ value, variant }: ResultCardProps) => {
           width={30}
           className="mr-1.5"
         />
+        {/* Eğer değer sonsuzsa (Infinity) ikon gösteriyoruz, yoksa değeri yazdırıyoruz */}
         {value === Infinity ? (
           <InfinityIcon className="h-6 w-6 stroke-[3]" />
         ) : (

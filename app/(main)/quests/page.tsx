@@ -9,6 +9,7 @@ import { UserProgress } from "@/components/user-progress";
 import { QUESTS } from "@/constants";
 import { getUserProgress, getUserSubscription } from "@/db/queries";
 
+// Görevler sayfası (puan kazanarak görev tamamlama)
 const QuestsPage = async () => {
   const userProgressData = getUserProgress();
   const userSubscriptionData = getUserSubscription();
@@ -36,13 +37,13 @@ const QuestsPage = async () => {
 
       <FeedWrapper>
         <div className="flex w-full flex-col items-center">
-          <Image src="/quests.svg" alt="Quests" height={90} width={90} />
+          <Image src="/quests.svg" alt="Görevler" height={90} width={90} />
 
           <h1 className="my-6 text-center text-2xl font-bold text-neutral-800">
-            Quests
+            Görevler
           </h1>
           <p className="mb-6 text-center text-lg text-muted-foreground">
-            Complete quests by earning points.
+            Puan kazanarak görevleri tamamla.
           </p>
 
           <ul className="w-full">
@@ -54,12 +55,7 @@ const QuestsPage = async () => {
                   className="flex w-full items-center gap-x-4 border-t-2 p-4"
                   key={quest.title}
                 >
-                  <Image
-                    src="/points.svg"
-                    alt="Points"
-                    width={60}
-                    height={60}
-                  />
+                  <Image src="/points.svg" alt="Puan" width={60} height={60} />
 
                   <div className="flex w-full flex-col gap-y-2">
                     <p className="text-xl font-bold text-neutral-700">

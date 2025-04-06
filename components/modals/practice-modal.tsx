@@ -28,16 +28,16 @@ export const PracticeModal = () => {
       <DialogContent className="max-w-md">
         <DialogHeader>
           <div className="mb-5 flex w-full items-center justify-center">
-            <Image src="/heart.svg" alt="Heart" height={100} width={100} />
+            <Image src="/heart.svg" alt="Kalp" height={100} width={100} />
           </div>
 
           <DialogTitle className="text-center text-2xl font-bold">
-            Practice lesson
+            Pratik dersi
           </DialogTitle>
 
           <DialogDescription className="text-center text-base">
-            Use practice lessons to regain hearts and points. You cannot loose
-            hearts or points in practice lessons.
+            Pratik derslerini kalp ve puan kazanmak için kullanabilirsiniz.
+            Pratik derslerinde kalp ya da puan kaybetmeniz mümkün değildir.
           </DialogDescription>
         </DialogHeader>
 
@@ -49,7 +49,7 @@ export const PracticeModal = () => {
               size="lg"
               onClick={close}
             >
-              I understand
+              Anladım
             </Button>
           </div>
         </DialogFooter>

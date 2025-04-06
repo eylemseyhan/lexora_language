@@ -5,16 +5,17 @@ import { getIsAdmin } from "@/lib/admin";
 
 const App = dynamic(() => import("./app"), { ssr: false });
 
-const AdminPage = () => {
-  const isAdmin = getIsAdmin();
+const AdminPage = async () => {
+  const isAdmin = await getIsAdmin(); // Admin kontrolü
 
-  if (!isAdmin) redirect("/");
+  console.log("Admin kontrolü sonucu:", isAdmin); // Burada admin kontrolünü loglayalım
 
-  return (
-    <div>
-      <App />
-    </div>
-  );
+  // Eğer admin değilse, anasayfaya yönlendir
+  if (!isAdmin) {
+    redirect("/"); // Admin değilse, anasayfaya yönlendir
+  }
+
+  return <App />;
 };
 
 export default AdminPage;

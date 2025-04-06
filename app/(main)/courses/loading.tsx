@@ -1,5 +1,6 @@
 import { Loader } from "lucide-react";
 
+// Yüklenme animasyonu bileşeni
 const Loading = () => {
   return (
     <div className="flex h-full w-full items-center justify-center">

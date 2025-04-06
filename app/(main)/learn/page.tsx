@@ -16,6 +16,7 @@ import {
 import { Header } from "./header";
 import { Unit } from "./unit";
 
+// Öğrencinin aktif kurs içeriğini gösteren sayfa
 const LearnPage = async () => {
   const userProgressData = getUserProgress();
   const courseProgressData = getCourseProgress();
@@ -23,6 +24,7 @@ const LearnPage = async () => {
   const unitsData = getUnits();
   const userSubscriptionData = getUserSubscription();
 
+  // Tüm verileri aynı anda çekiyoruz
   const [
     userProgress,
     units,
@@ -37,6 +39,7 @@ const LearnPage = async () => {
     userSubscriptionData,
   ]);
 
+  // Kullanıcının kursu yoksa ders sayfasına yönlendirme
   if (!courseProgress || !userProgress || !userProgress.activeCourse)
     redirect("/courses");
 
@@ -55,8 +58,10 @@ const LearnPage = async () => {
         {!isPro && <Promo />}
         <Quests points={userProgress.points} />
       </StickyWrapper>
+
       <FeedWrapper>
         <Header title={userProgress.activeCourse.title} />
+
         {units.map((unit) => (
           <div key={unit.id} className="mb-10">
             <Unit

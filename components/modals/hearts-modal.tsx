@@ -37,18 +37,19 @@ export const HeartsModal = () => {
           <div className="mb-5 flex w-full items-center justify-center">
             <Image
               src="/mascot_bad.svg"
-              alt="Mascot Bad"
+              alt="Mascot Üzgün"
               height={80}
               width={80}
             />
           </div>
 
           <DialogTitle className="text-center text-2xl font-bold">
-            You ran out of hearts!
+            Kalbin bitti!
           </DialogTitle>
 
           <DialogDescription className="text-center text-base">
-            Get Pro for unlimited hearts, or purchase them in the store.
+            Sınırsız kalp almak için Pro üyeliği edinin veya mağazadan satın
+            alın.
           </DialogDescription>
         </DialogHeader>
 
@@ -60,7 +61,7 @@ export const HeartsModal = () => {
               size="lg"
               onClick={onClick}
             >
-              Get unlimited hearts
+              Sınırsız kalp al
             </Button>
 
             <Button
@@ -69,7 +70,7 @@ export const HeartsModal = () => {
               size="lg"
               onClick={close}
             >
-              No thanks
+              Hayır, teşekkürler
             </Button>
           </div>
         </DialogFooter>

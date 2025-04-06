@@ -16,6 +16,7 @@ type ItemsProps = {
   hasActiveSubscription: boolean;
 };
 
+// Mağaza bileşeni: kalp doldurma ve abonelik işlemleri
 export const Items = ({
   hearts,
   points,
@@ -27,29 +28,31 @@ export const Items = ({
     if (pending || hearts === MAX_HEARTS || points < POINTS_TO_REFILL) return;
 
     startTransition(() => {
-      refillHearts().catch(() => toast.error("Something went wrong."));
+      refillHearts().catch(() =>
+        toast.error("Bir hata oluştu, tekrar deneyin.")
+      );
     });
   };
 
   const onUpgrade = () => {
-    toast.loading("Redirecting to checkout...");
+    toast.loading("Satın alma sayfasına yönlendiriliyorsunuz...");
     startTransition(() => {
       createStripeUrl()
         .then((response) => {
           if (response.data) window.location.href = response.data;
         })
-        .catch(() => toast.error("Something went wrong."));
+        .catch(() => toast.error("Bir hata oluştu, tekrar deneyin."));
     });
   };
 
   return (
     <ul className="w-full">
       <div className="flex w-full items-center gap-x-4 border-t-2 p-4">
-        <Image src="/heart.svg" alt="Heart" height={60} width={60} />
+        <Image src="/heart.svg" alt="Kalp" height={60} width={60} />
 
         <div className="flex-1">
           <p className="text-base font-bold text-neutral-700 lg:text-xl">
-            Refill hearts
+            Kalpleri Doldur
           </p>
         </div>
 
@@ -63,11 +66,10 @@ export const Items = ({
           }
         >
           {hearts === MAX_HEARTS ? (
-            "full"
+            "Dolu"
           ) : (
             <div className="flex items-center">
-              <Image src="/points.svg" alt="Points" height={20} width={20} />
-
+              <Image src="/points.svg" alt="Puan" height={20} width={20} />
               <p>{POINTS_TO_REFILL}</p>
             </div>
           )}
@@ -75,16 +77,16 @@ export const Items = ({
       </div>
 
       <div className="flex w-full items-center gap-x-4 border-t-2 p-4 pt-8">
-        <Image src="/unlimited.svg" alt="Unlimited" height={60} width={60} />
+        <Image src="/unlimited.svg" alt="Sınırsız" height={60} width={60} />
 
         <div className="flex-1">
           <p className="text-base font-bold text-neutral-700 lg:text-xl">
-            Unlimited hearts
+            Sınırsız Kalp
           </p>
         </div>
 
         <Button onClick={onUpgrade} disabled={pending} aria-disabled={pending}>
-          {hasActiveSubscription ? "settings" : "upgrade"}
+          {hasActiveSubscription ? "Ayarlar" : "Yükselt"}
         </Button>
       </div>
     </ul>

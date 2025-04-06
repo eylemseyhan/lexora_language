@@ -3,6 +3,7 @@ import type { PropsWithChildren } from "react";
 import { Footer } from "./footer";
 import { Header } from "./header";
 
+// marketing sayfalarının layoutu
 const MarketingLayout = ({ children }: PropsWithChildren) => {
   return (
     <div className="flex min-h-screen flex-col">

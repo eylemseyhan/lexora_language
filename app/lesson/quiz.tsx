@@ -43,18 +43,19 @@ export const Quiz = ({
   initialLessonChallenges,
   userSubscription,
 }: QuizProps) => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [correctAudio, _c, correctControls] = useAudio({ src: "/correct.wav" });
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [incorrectAudio, _i, incorrectControls] = useAudio({
+  // Ses dosyalarını ayarlıyoruz
+  // Ses dosyalarını ayarlıyoruz, kullanılmayan değişkenleri temizliyoruz
+  const [correctAudio, , correctControls] = useAudio({ src: "/correct.wav" });
+  const [incorrectAudio, , incorrectControls] = useAudio({
     src: "/incorrect.wav",
   });
+
   const [finishAudio] = useAudio({
     src: "/finish.mp3",
     autoPlay: true,
   });
-  const { width, height } = useWindowSize();
 
+  const { width, height } = useWindowSize();
   const router = useRouter();
   const [pending, startTransition] = useTransition();
   const { open: openHeartsModal } = useHeartsModal();
@@ -127,12 +128,14 @@ export const Quiz = ({
             setStatus("correct");
             setPercentage((prev) => prev + 100 / challenges.length);
 
-            // This is a practice
+            // Bu bir pratik
             if (initialPercentage === 100) {
               setHearts((prev) => Math.min(prev + 1, MAX_HEARTS));
             }
           })
-          .catch(() => toast.error("Something went wrong. Please try again."));
+          .catch(() =>
+            toast.error("Bir şeyler ters gitti. Lütfen tekrar deneyin.")
+          );
       });
     } else {
       startTransition(() => {
@@ -148,7 +151,9 @@ export const Quiz = ({
 
             if (!response?.error) setHearts((prev) => Math.max(prev - 1, 0));
           })
-          .catch(() => toast.error("Something went wrong. Please try again."));
+          .catch(() =>
+            toast.error("Bir şeyler ters gitti. Lütfen tekrar deneyin.")
+          );
       });
     }
   };
@@ -172,7 +177,6 @@ export const Quiz = ({
             height={100}
             width={100}
           />
-
           <Image
             src="/finish.svg"
             alt="Finish"
@@ -180,9 +184,8 @@ export const Quiz = ({
             height={100}
             width={100}
           />
-
           <h1 className="text-lg font-bold text-neutral-700 lg:text-3xl">
-            Great job! <br /> You&apos;ve completed the lesson.
+            Harika iş! <br /> Dersi tamamladın.
           </h1>
 
           <div className="flex w-full items-center gap-x-4">
@@ -204,9 +207,7 @@ export const Quiz = ({
   }
 
   const title =
-    challenge.type === "ASSIST"
-      ? "Select the correct meaning"
-      : challenge.question;
+    challenge.type === "ASSIST" ? "Doğru anlamı seçin" : challenge.question;
 
   return (
     <>

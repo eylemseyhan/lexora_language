@@ -15,6 +15,7 @@ type ListProps = {
   activeCourseId?: typeof userProgress.$inferSelect.activeCourseId;
 };
 
+// Kursları listeleyen bileşen
 export const List = ({ courses, activeCourseId }: ListProps) => {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
@@ -25,7 +26,9 @@ export const List = ({ courses, activeCourseId }: ListProps) => {
     if (id === activeCourseId) return router.push("/learn");
 
     startTransition(() => {
-      upsertUserProgress(id).catch(() => toast.error("Something went wrong."));
+      upsertUserProgress(id).catch(() =>
+        toast.error("Bir hata oluştu. Lütfen tekrar deneyin.")
+      );
     });
   };
 

@@ -14,6 +14,7 @@ type CardProps = {
   isActive?: boolean;
 };
 
+// Kurs kartı bileşeni
 export const Card = ({
   title,
   id,

@@ -30,6 +30,9 @@ const App = () => {
         list={CourseList}
         create={CourseCreate}
         edit={CourseEdit}
+        options={{
+          label: "Kurslar",
+        }}
       />
 
       <Resource
@@ -38,6 +41,9 @@ const App = () => {
         list={UnitList}
         create={UnitCreate}
         edit={UnitEdit}
+        options={{
+          label: "Birimler",
+        }}
       />
 
       <Resource
@@ -46,6 +52,9 @@ const App = () => {
         list={LessonList}
         create={LessonCreate}
         edit={LessonEdit}
+        options={{
+          label: "Dersler",
+        }}
       />
 
       <Resource
@@ -54,6 +63,9 @@ const App = () => {
         list={ChallengeList}
         create={ChallengeCreate}
         edit={ChallengeEdit}
+        options={{
+          label: "Sınavlar",
+        }}
       />
 
       <Resource
@@ -63,7 +75,7 @@ const App = () => {
         create={ChallengeOptionCreate}
         edit={ChallengeOptionEdit}
         options={{
-          label: "Challenge Options",
+          label: "Sınav Seçenekleri",
         }}
       />
     </Admin>

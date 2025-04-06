@@ -8,6 +8,7 @@ type UnitBannerProps = {
   description: string;
 };
 
+// Ders birimi başlığını ve açıklamasını gösteren alan
 export const UnitBanner = ({ title, description }: UnitBannerProps) => {
   return (
     <div className="flex w-full items-center justify-between rounded-xl bg-green-500 p-5 text-white">
@@ -23,7 +24,7 @@ export const UnitBanner = ({ title, description }: UnitBannerProps) => {
           className="hidden border-2 border-b-4 active:border-b-2 xl:flex"
         >
           <NotebookText className="mr-2" />
-          Continue
+          Devam Et
         </Button>
       </Link>
     </div>
