@@ -48,8 +48,7 @@ export const HeartsModal = () => {
           </DialogTitle>
 
           <DialogDescription className="text-center text-base">
-            Sınırsız kalp almak için Pro üyeliği edinin veya mağazadan satın
-            alın.
+            
           </DialogDescription>
         </DialogHeader>
 
